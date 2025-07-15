@@ -1,0 +1,111 @@
+<div class="fixed inset-0 w-screen h-screen flex items-center justify-center">
+
+  @if (isImage) {
+    <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+      <div class="bg-white p-6 rounded-2xl shadow-xl text-center space-y-4 w-full max-w-sm">
+        <h2 class="text-xl font-semibold text-gray-800">
+          Use the QR code below to scan with
+          <br/>
+          your Authenticator App
+        </h2>
+
+        <img
+          [src]="'data:image/jpeg;base64,' + imageBase"
+          alt="QR Code from API"
+          class="w-60 h-60 object-contain mx-auto"
+        />
+
+        <!-- Done button -->
+        <button
+          (click)="goToLogin()"
+          class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition"
+        >
+          Done
+        </button>
+      </div>
+    </div>
+  }
+
+
+  <div class="flex w-full h-full">
+
+    <!-- Left side: Image centered -->
+    <div class="flex-1 flex items-center justify-center">
+      <img class="w-90 object-center" src="./NCFR.png" alt="fonepay"/>
+    </div>
+
+    <!-- Right side: Form centered -->
+    <div class="flex-1 flex items-center justify-center">
+      <form class="w-full max-w-md bg-white p-8 rounded-lg shadow-md space-y-6">
+        <h2 class="text-center font-mono text-4xl font-bold text-gray-800">Sign Up</h2>
+
+        <div>
+          <label class="block text-gray-700 font-medium mb-1" for="username">Username</label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            [(ngModel)]="user.username"
+            placeholder="Enter your username"
+            class="w-full border border-gray-300 rounded px-4 py-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <!--          <div class="text-red-900">-->
+          <!--            <span>This is required</span>-->
+          <!--          </div>-->
+
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-medium mb-1" for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            [(ngModel)]="user.email"
+            placeholder="Enter your email"
+            class="w-full border border-gray-300 rounded px-4 py-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-medium mb-1" for="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            [(ngModel)]="user.password"
+            placeholder="Enter your password"
+            class="w-full border border-gray-300 rounded px-4 py-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-medium mb-1" for="confirmPassword">Confirm Password</label>
+          <input
+            id="confirmPassword"
+            name="confirmPassword"
+            type="password"
+            [(ngModel)]="passwordConfirm"
+            placeholder="Confirm your password"
+            class="w-full border border-gray-300 rounded px-4 py-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <button
+          type="button"
+          (click)="registerUser()"
+          class="w-full font-mono font-bold bg-blue-600 text-white text-lg py-2 rounded hover:bg-blue-700 transition"
+        >
+          Sign Up
+        </button>
+
+        <!-- Already registered -->
+        <p class="text-center text-sm text-gray-600">
+          Already registered?
+          <a href="/login" class="text-blue-600 hover:underline font-medium">Log in</a>
+        </p>
+      </form>
+
+    </div>
+  </div>
+</div>

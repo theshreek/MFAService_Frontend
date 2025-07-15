@@ -1,0 +1,55 @@
+<div class="fixed inset-0 w-screen h-screen flex items-center justify-center">
+  <div class="flex w-full h-full">
+
+    <!-- Left side: Image centered -->
+    <div class="flex-1 flex items-center justify-center">
+      <img class="w-90 object-center" src="./NCFR.png" alt="fonepay" />
+    </div>
+
+    <!-- Right side: Form centered -->
+    <div class="flex-1 flex items-center justify-center">
+      <form class="w-full max-w-md bg-white p-8 rounded-lg shadow-md space-y-6" [formGroup]="userLoginForm">
+        <h2 class="text-center font-mono text-4xl font-bold text-gray-800">Login</h2>
+
+        <div>
+          <label class="block text-gray-700 font-medium mb-1" for="username">Username</label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            placeholder="Enter your username"
+            formControlName="username"
+            class="w-full border border-gray-300 rounded px-4 py-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-medium mb-1" for="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Enter your password"
+            formControlName="password"
+            class="w-full border border-gray-300 rounded px-4 py-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <button
+          type="button"
+          (click)="userLogin()"
+          class="w-full font-mono font-bold bg-blue-600 text-white text-lg py-2 rounded hover:bg-blue-700 transition"
+        >
+          Log In
+        </button>
+
+        <!-- Not registered link -->
+        <p class="text-center text-sm text-gray-600">
+          Not registered?
+          <a href="/register" class="text-blue-600 hover:underline font-medium">Create an account</a>
+        </p>
+      </form>
+
+    </div>
+  </div>
+</div>
